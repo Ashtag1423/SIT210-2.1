@@ -1,0 +1,98 @@
+// -----------------------------------
+// SIT210 - Task 2.1 - Pass
+// -----------------------------------
+
+/* First, let's create our "shorthand" for the pins:
+led1 is D6, led2 is D7 */
+
+const pin_t MY_LED = D7;
+
+int BUTTON_PIN = D4;
+
+
+SYSTEM_THREAD(ENABLED);
+
+
+int ledToggle(String command) 
+{
+    if (command.equals("on")) 
+    {
+        digitalWrite(MY_LED, LOW);
+        digitalWrite(MY_LED, HIGH);
+        delay(2000);
+        return 1;
+    }
+    else if (command.equals("off")) 
+    {
+        digitalWrite(MY_LED, LOW);
+        digitalWrite(MY_LED, HIGH);
+        return 0;
+    }
+    else 
+    {
+        
+        return -1;
+    }
+}
+
+void setup() 
+{
+   pinMode(MY_LED, OUTPUT);
+   pinMode(BUTTON_PIN , INPUT);
+
+
+  
+   Particle.function("led",ledToggle);
+
+   digitalWrite(MY_LED, LOW);
+   digitalWrite(MY_LED, HIGH);
+}
+
+void loop()
+{
+    //Y (-.--)
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1000);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+     digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1000);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1000);
+    
+    //I (..)
+   
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(2000);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(2000);
+    
+    //N (-.)
+    digitalWrite(MY_LED, LOW);    
+    delay(500);                     
+    digitalWrite(MY_LED, HIGH);   
+    delay(500);                       
+    digitalWrite(MY_LED, LOW);    
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1000);
+    
+    //End (Signal End)
+    digitalWrite(MY_LED,LOW);
+    delay(0);
+    digitalWrite(MY_LED,HIGH);
+    delay(0);
+    
+}
